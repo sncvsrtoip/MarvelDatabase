@@ -74,6 +74,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F400A4D1C8763AB0083CD21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F5318A01C7E7B2F005AEF88 /* Main.storyboard */,
+				6F5318A51C7E7B2F005AEF88 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6F400A4E1C8763B10083CD21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6F400A4F1C8763B70083CD21 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6F53189E1C7E7B2F005AEF88 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6F400A501C8765C20083CD21 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		6F400A511C8765C90083CD21 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6F5318A31C7E7B2F005AEF88 /* Assets.xcassets */,
+				6F53189C1C7E7B2F005AEF88 /* AppDelegate.swift */,
+				6F5318A81C7E7B2F005AEF88 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		6F5318901C7E7B2F005AEF88 = {
 			isa = PBXGroup;
 			children = (
@@ -97,12 +138,11 @@
 		6F53189B1C7E7B2F005AEF88 /* MarvelDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				6F53189C1C7E7B2F005AEF88 /* AppDelegate.swift */,
-				6F53189E1C7E7B2F005AEF88 /* ViewController.swift */,
-				6F5318A01C7E7B2F005AEF88 /* Main.storyboard */,
-				6F5318A31C7E7B2F005AEF88 /* Assets.xcassets */,
-				6F5318A51C7E7B2F005AEF88 /* LaunchScreen.storyboard */,
-				6F5318A81C7E7B2F005AEF88 /* Info.plist */,
+				6F400A511C8765C90083CD21 /* Supporting Files */,
+				6F400A501C8765C20083CD21 /* Utils */,
+				6F400A4F1C8763B70083CD21 /* Controller */,
+				6F400A4E1C8763B10083CD21 /* Model */,
+				6F400A4D1C8763AB0083CD21 /* View */,
 			);
 			path = MarvelDatabase;
 			sourceTree = "<group>";
@@ -482,6 +522,7 @@
 				6F5318C31C7E7B2F005AEF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F5318C41C7E7B2F005AEF88 /* Build configuration list for PBXNativeTarget "MarvelDatabaseTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +531,7 @@
 				6F5318C61C7E7B2F005AEF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F5318C71C7E7B2F005AEF88 /* Build configuration list for PBXNativeTarget "MarvelDatabaseUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +540,7 @@
 				6F5318C91C7E7B2F005AEF88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
