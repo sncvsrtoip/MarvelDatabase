@@ -41,7 +41,7 @@ class APIManager {
                                 let entry = MarvelCharacter(data: entry as! JSONDictionary)
                                 characters.append(entry)
                             }
-                            print(results.count)
+
                             let priority = DISPATCH_QUEUE_PRIORITY_HIGH
                             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                                 dispatch_async(dispatch_get_main_queue()) {
