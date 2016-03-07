@@ -1,19 +1,20 @@
 //
-//  MarvelCharacter.swift
+//  Comix.swift
 //  MarvelDatabase
 //
-//  Created by Piotr Furmanski on 02.03.2016.
+//  Created by Piotr Furmanski on 08.03.2016.
 //  Copyright © 2016 Piotr Furmanski. All rights reserved.
 //
 
 import Foundation
 
-class MarvelCharacter {
+class Comix {
     
     // Data encapsulation
     private(set) var vId:Int
-    private(set) var vName:String
+    private(set) var vTitle:String
     private(set) var vImageUrl:String
+    private(set) var vDescription:String
     
     // This variable gets created from the UI
     var vImageData:NSData?
@@ -27,13 +28,20 @@ class MarvelCharacter {
         }
         
         if let name = data["name"] as? String {
-                self.vName = name
+            self.vTitle = name
         } else {
             
-            vName = ""
+            vTitle = ""
         }
         
-
+        if let name = data["description"] as? String {
+            self.vDescription = name
+        } else {
+            
+            vDescription = ""
+        }
+        
+        
         if let img = data["thumbnail"] as? JSONDictionary,
             image = img["path"] as? String {
                 vImageUrl = image + ".jpg"

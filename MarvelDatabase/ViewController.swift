@@ -30,7 +30,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let api = APIManager()
         let ts = String(NSDate().timeIntervalSince1970)
         let hash = md5(string: ts + PRIV_KEY + API_KEY)
-        var url = "http://gateway.marvel.com:80/v1/public/characters?orderBy=-name&limit=100&apikey=" + API_KEY
+        var url = MARVEL_URL + API_KEY
         url += "&ts="+ts+"&hash="+hash;
         api.loadData(url, completion: didLoadData)
     }
