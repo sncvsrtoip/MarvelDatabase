@@ -15,6 +15,7 @@ class Comix {
     private(set) var vTitle:String
     private(set) var vImageUrl:String
     private(set) var vDescription:String
+    private(set) var vScreensUrl = [String]()
     
     // This variable gets created from the UI
     var vImageData:NSData?
@@ -48,6 +49,17 @@ class Comix {
                 vImageUrl = path + "." + pathExtension
         } else {
             vImageUrl = ""
+        }
+        
+        if let screenArray = data["images"] as? JSONArray {
+            for screenDictionary in screenArray {
+                if let screen = screenDictionary as? JSONDictionary,
+                path = screen["path"] as? String,
+                pathExtension = screen["extension"] as? String {
+                    let screenUrl = path + pathExtension
+                    vScreensUrl.append(screenUrl)
+                }
+            }
         }
         
     }

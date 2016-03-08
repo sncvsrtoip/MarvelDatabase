@@ -1,0 +1,88 @@
+//
+//  ComixDetail.swift
+//  MarvelDatabase
+//
+//  Created by Piotr Furmanski on 08.03.2016.
+//  Copyright © 2016 Piotr Furmanski. All rights reserved.
+//
+
+import UIKit
+
+class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    var comics = [Comix]()
+    var id : Int?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let charId = id {
+            runComixAPI(charId)
+        }
+        self.collectionView.backgroundColor = UIColor.clearColor()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("comixImagesCell", forIndexPath: indexPath) as? ComixCell {
+            
+            let comic: Comix!
+            comic = comics[indexPath.row]
+            
+            cell.comix = comic
+            
+            return cell
+            
+        } else {
+            return UICollectionViewCell()
+        }
+        
+    }
+    
+    func runComixAPI(id : Int) {
+        //Call API
+        let api = APIManager()
+        let ts = String(NSDate().timeIntervalSince1970)
+        let hash = md5(string: ts + PRIV_KEY + API_KEY)
+        var url = COMIX_URL + String(id) + API_POSTFIX + API_KEY
+        url += "&ts="+ts+"&hash="+hash;
+        api.loadData(url, completion: didLoadComixData)
+    }
+    
+    func didLoadComixData(comics: [Comix]) {
+        
+        self.comics = comics
+        collectionView.reloadData()
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        //let mCharacter: Comix!
+        //mCharacter = marvelCharacters[indexPath.row]
+        
+        
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(comics.count)
+        return comics.count
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        return CGSizeMake(105, 105)
+    }
+    
+    
+}
