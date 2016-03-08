@@ -12,8 +12,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet var tableView: UIView!
     var marvelCharacters = [MarvelCharacter]()
+    var comics = [Comix]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +39,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.marvelCharacters = marvelCharacters
         
-//        for (index, item) in marvelCharacters.enumerate() {
-//            print("\(index) name = \(item.vName)")
-//        }
-        
         collectionView.reloadData()
         
     }
@@ -67,9 +63,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let mCharacter: MarvelCharacter!
+        let mCharacter : MarvelCharacter!
         mCharacter = marvelCharacters[indexPath.row]
+    
+        performSegueWithIdentifier("ComixDetailVC", sender: mCharacter)
         
         
     }
@@ -89,18 +86,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return CGSizeMake(105, 105)
     }
     
-    func md5(string string: String) -> String {
-        var digest = [UInt8](count: Int(CC_MD5_DIGEST_LENGTH), repeatedValue: 0)
-        if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
-            CC_MD5(data.bytes, CC_LONG(data.length), &digest)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ComixDetailVC" {
+            if let comicVC = segue.destinationViewController as? ComixVC {
+                if let character = sender as? MarvelCharacter {
+                    comicVC.id = character.vId
+                }
+            }
         }
-        
-        var digestHex = ""
-        for index in 0..<Int(CC_MD5_DIGEST_LENGTH) {
-            digestHex += String(format: "%02x", digest[index])
-        }
-        
-        return digestHex
     }
 
 }

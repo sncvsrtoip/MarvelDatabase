@@ -35,8 +35,9 @@ class MarvelCharacter {
         
 
         if let img = data["thumbnail"] as? JSONDictionary,
-            image = img["path"] as? String {
-                vImageUrl = image + ".jpg"
+            image = img["path"] as? String,
+            imageExtension = img["extension"] as? String {
+                vImageUrl = image + "." + imageExtension
         } else {
             vImageUrl = ""
         }

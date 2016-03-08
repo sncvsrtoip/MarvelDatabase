@@ -27,7 +27,7 @@ class Comix {
             vId = -1
         }
         
-        if let name = data["name"] as? String {
+        if let name = data["title"] as? String {
             self.vTitle = name
         } else {
             
@@ -42,9 +42,10 @@ class Comix {
         }
         
         
-        if let img = data["thumbnail"] as? JSONDictionary,
-            image = img["path"] as? String {
-                vImageUrl = image + ".jpg"
+        if let image = data["thumbnail"] as? JSONDictionary,
+            path = image["path"] as? String,
+            pathExtension = image["extension"] as? String{
+                vImageUrl = path + "." + pathExtension
         } else {
             vImageUrl = ""
         }
