@@ -94,11 +94,6 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             if let comicDetailVC = segue.destinationViewController as? ComixDetail {
                 if let comic = sender as? Comix {
                     comicDetailVC.comix = comic
-                    if let index = indexSelected,
-                    cell = collectionView.cellForItemAtIndexPath(index) as? ComixCell {
-                       comicDetailVC.comixThumb = cell.comixImage
-                    }
-                    
                 }
             }
         }

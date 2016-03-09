@@ -24,6 +24,12 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
         if let comic = comix {
             comixTitle.text = comic.vTitle
             comixDescription.text = comic.vDescription
+
+            if comic.vImageData != nil {
+                comixThumb.image = UIImage(data: comic.vImageData!)
+            } else {
+                getComixImage(comic, imageView: comixThumb)
+            }
         }
         
         self.collectionView.backgroundColor = UIColor.clearColor()
@@ -77,5 +83,21 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
         return CGSizeMake(105, 105)
     }
     
-    
+    func getComixImage(comix: Comix, imageView : UIImageView){
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
+            let data = NSData(contentsOfURL: NSURL(string: comix.vImageUrl)!)
+            
+            var image : UIImage?
+            if data != nil {
+                comix.vImageData = data
+                image = UIImage(data: data!)
+            }
+            // move back to Main Queue
+            dispatch_async(dispatch_get_main_queue()) {
+                imageView.image = image
+            }
+        }
+    }
 }

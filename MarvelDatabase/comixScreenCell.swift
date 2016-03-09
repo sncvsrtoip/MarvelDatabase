@@ -14,6 +14,7 @@ class ComixScreenCell: UICollectionViewCell {
     
     var screenUrl: String? {
         didSet {
+            print(screenUrl)
             updateCell()
         }
     }
@@ -30,7 +31,6 @@ class ComixScreenCell: UICollectionViewCell {
             
             var image : UIImage?
             if data != nil {
-                //comix.vImageData = data
                 image = UIImage(data: data!)
             }
             // move back to Main Queue
