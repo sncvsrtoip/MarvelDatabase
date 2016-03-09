@@ -244,7 +244,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RE2-zq-KdT">
                                 <rect key="frame" x="0.0" y="554" width="600" height="46"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1FK-U3-WW0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1FK-U3-WW0">
                                         <rect key="frame" x="20" y="8" width="560" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.8445851293103448" colorSpace="calibratedRGB"/>
@@ -253,7 +253,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="1FK-U3-WW0" firstAttribute="leading" secondItem="RE2-zq-KdT" secondAttribute="leading" constant="20" id="EXc-Fq-pJV"/>
                                     <constraint firstAttribute="height" constant="46" id="IJ4-qq-aTF"/>
+                                    <constraint firstAttribute="trailing" secondItem="1FK-U3-WW0" secondAttribute="trailing" constant="20" id="aJP-DQ-3wa"/>
+                                    <constraint firstAttribute="bottom" secondItem="1FK-U3-WW0" secondAttribute="bottom" constant="17" id="iCD-dh-wuf"/>
+                                    <constraint firstItem="1FK-U3-WW0" firstAttribute="top" secondItem="RE2-zq-KdT" secondAttribute="top" constant="8" id="m7f-0O-x39"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6i-8x-AkA">
@@ -432,7 +436,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byN-9b-FIh">
                                 <rect key="frame" x="0.0" y="554" width="600" height="46"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="No1-q3-PC2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="No1-q3-PC2">
                                         <rect key="frame" x="20" y="8" width="560" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84458512929999996" colorSpace="calibratedRGB"/>
@@ -442,7 +446,11 @@
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="1bZ-oD-4g4"/>
+                                    <constraint firstItem="No1-q3-PC2" firstAttribute="leading" secondItem="byN-9b-FIh" secondAttribute="leading" constant="20" id="9cp-NF-Uj9"/>
                                     <constraint firstAttribute="height" constant="46" id="Jjg-6j-yWw"/>
+                                    <constraint firstAttribute="trailing" secondItem="No1-q3-PC2" secondAttribute="trailing" constant="20" id="YKq-2q-g50"/>
+                                    <constraint firstItem="No1-q3-PC2" firstAttribute="top" secondItem="byN-9b-FIh" secondAttribute="top" constant="8" id="tPK-is-MaR"/>
+                                    <constraint firstAttribute="bottom" secondItem="No1-q3-PC2" secondAttribute="bottom" constant="17" id="u0S-pW-bAV"/>
                                 </constraints>
                             </view>
                         </subviews>
