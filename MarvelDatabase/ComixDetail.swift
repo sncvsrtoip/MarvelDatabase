@@ -68,6 +68,7 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(comix?.vScreensUrl.count)
         if let screenTable = comix?.vScreensUrl {
+            print("screen" + String(screenTable.count))
             return screenTable.count
         } else {
             return 0

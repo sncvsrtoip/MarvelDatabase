@@ -55,7 +55,7 @@ class Comix {
                 if let screen = screenDictionary as? JSONDictionary,
                 path = screen["path"] as? String,
                 pathExtension = screen["extension"] as? String {
-                    let screenUrl = path + pathExtension
+                    let screenUrl = path + "." + pathExtension
                     vScreensUrl.append(screenUrl)
                 }
             }
