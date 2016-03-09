@@ -23,6 +23,7 @@
 		6F9022121C8E5BFC0094C89F /* md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9022111C8E5BFC0094C89F /* md5.swift */; };
 		6F9A80DF1C8F861600AAF9A0 /* ComixDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A80DE1C8F861600AAF9A0 /* ComixDetail.swift */; };
 		6F9A80E11C8F990D00AAF9A0 /* comixScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A80E01C8F990D00AAF9A0 /* comixScreenCell.swift */; };
+		6FBF1E221C8FCD0300EE6BAF /* BigScreenShotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBF1E211C8FCD0300EE6BAF /* BigScreenShotVC.swift */; };
 		6FF6768F1C8789390016E0C2 /* MarvelColViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6768E1C8789390016E0C2 /* MarvelColViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		6F9022111C8E5BFC0094C89F /* md5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = md5.swift; sourceTree = "<group>"; };
 		6F9A80DE1C8F861600AAF9A0 /* ComixDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComixDetail.swift; sourceTree = "<group>"; };
 		6F9A80E01C8F990D00AAF9A0 /* comixScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = comixScreenCell.swift; sourceTree = "<group>"; };
+		6FBF1E211C8FCD0300EE6BAF /* BigScreenShotVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigScreenShotVC.swift; sourceTree = "<group>"; };
 		6FF6768E1C8789390016E0C2 /* MarvelColViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelColViewCell.swift; sourceTree = "<group>"; };
 		6FF676901C87A8CE0016E0C2 /* MarvelDatabase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelDatabase-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				6F53189E1C7E7B2F005AEF88 /* ViewController.swift */,
 				6F90220F1C8E44310094C89F /* ComixVC.swift */,
 				6F9A80DE1C8F861600AAF9A0 /* ComixDetail.swift */,
+				6FBF1E211C8FCD0300EE6BAF /* BigScreenShotVC.swift */,
 				6FF6768E1C8789390016E0C2 /* MarvelColViewCell.swift */,
 				6F90220B1C8E41110094C89F /* ComixCell.swift */,
 				6F9A80E01C8F990D00AAF9A0 /* comixScreenCell.swift */,
@@ -334,6 +337,7 @@
 				6F53189F1C7E7B2F005AEF88 /* ViewController.swift in Sources */,
 				6F9A80E11C8F990D00AAF9A0 /* comixScreenCell.swift in Sources */,
 				6F90220C1C8E41110094C89F /* ComixCell.swift in Sources */,
+				6FBF1E221C8FCD0300EE6BAF /* BigScreenShotVC.swift in Sources */,
 				6F400A591C876F450083CD21 /* ApiManager.swift in Sources */,
 				6F9A80DF1C8F861600AAF9A0 /* ComixDetail.swift in Sources */,
 				6F90220E1C8E41A40094C89F /* Comix.swift in Sources */,

@@ -17,6 +17,7 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var comixDescription: UILabel!
     
     var comix : Comix?
+    var screenCells = [ComixScreenCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +60,11 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         //let comic: Comix!
-        //comic = comics[indexPath.row]
-        
-        
+        //comic = comics[indexPath.row] bigScreenShot
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ComixScreenCell {
+            let img = cell.image
+            performSegueWithIdentifier("bigScreenShot", sender: img)
+        }
     }
     
     
@@ -98,6 +101,16 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
             // move back to Main Queue
             dispatch_async(dispatch_get_main_queue()) {
                 imageView.image = image
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "bigScreenShot" {
+            if let bigScreenVC = segue.destinationViewController as? BigScreenShotVC {
+                if let img = sender as? UIImageView {
+                    bigScreenVC.screen = img.image!
+                }
             }
         }
     }
