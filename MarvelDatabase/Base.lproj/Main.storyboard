@@ -293,7 +293,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="08f-Pa-PaB">
-                                                        <rect key="frame" x="302" y="0.0" width="299" height="295"/>
+                                                        <rect key="frame" x="302" y="0.0" width="298" height="295"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="eOo-AY-wOy"/>
                                                         </constraints>
