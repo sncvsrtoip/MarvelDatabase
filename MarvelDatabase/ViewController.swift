@@ -14,6 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
     var marvelCharacters = [MarvelCharacter]()
     var comics = [Comix]()
+    var limit = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +31,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let api = APIManager()
         let ts = String(NSDate().timeIntervalSince1970)
         let hash = md5(string: ts + PRIV_KEY + API_KEY)
-        var url = MARVEL_URL + API_KEY
-        url += "&ts="+ts+"&hash="+hash;
-        api.loadData(url, completion: didLoadData)
+        
+        for letter in "abcdefghijklmnopqrstuvwxyz".characters {
+            var url = MARVEL_URL + String(letter) + AND_LIMIT + String(limit) + AND_API + API_KEY
+            url += "&ts="+ts+"&hash="+hash;
+            api.loadData(url, completion: didLoadData)
+        }
+        
     }
     
     func didLoadData(marvelCharacters: [MarvelCharacter]) {
-        
-        self.marvelCharacters = marvelCharacters
+        let sortedMarveCharacters = marvelCharacters.sort {$0.vName.compare($1.vName) == .OrderedAscending }
+        self.marvelCharacters = sortedMarveCharacters
         
         collectionView.reloadData()
         

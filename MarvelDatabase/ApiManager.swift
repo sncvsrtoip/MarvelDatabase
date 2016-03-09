@@ -10,8 +10,9 @@ import Foundation
 
 class APIManager {
     
+    var characters = [MarvelCharacter]()
+    
     func loadData(urlString:String, completion: [MarvelCharacter] -> Void ) {
-        
         
         //let config = NSURLSessionConfiguration.ephemeralSessionConfiguration()
         
@@ -36,16 +37,15 @@ class APIManager {
                         data = json["data"] as? JSONDictionary,
                         results = data["results"] as? JSONArray {
                             
-                            var characters = [MarvelCharacter]()
                             for entry in results {
                                 let entry = MarvelCharacter(data: entry as! JSONDictionary)
-                                characters.append(entry)
+                                self.characters.append(entry)
                             }
 
                             let priority = DISPATCH_QUEUE_PRIORITY_HIGH
                             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                                 dispatch_async(dispatch_get_main_queue()) {
-                                    completion(characters)
+                                    completion(self.characters)
                                 }
                             }
                     }
