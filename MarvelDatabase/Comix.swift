@@ -17,7 +17,6 @@ class Comix {
     private(set) var vDescription:String
     private(set) var vScreensUrl = [String]()
     
-    // This variable gets created from the UI
     var vImageData:NSData?
     
     init(data: JSONDictionary) {

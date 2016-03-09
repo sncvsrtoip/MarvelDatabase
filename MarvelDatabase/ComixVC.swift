@@ -13,6 +13,7 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     @IBOutlet weak var collectionView: UICollectionView!
     var comics = [Comix]()
     var id : Int?
+    var indexSelected : NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +64,11 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        //let mCharacter: Comix!
-        //mCharacter = marvelCharacters[indexPath.row]
+        let comic : Comix!
+        comic = comics[indexPath.row]
+        indexSelected = indexPath
+        
+        performSegueWithIdentifier("ComixDetail", sender: comic)
         
         
     }
@@ -84,5 +88,20 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         return CGSizeMake(105, 105)
     }
 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ComixDetail" {
+            if let comicDetailVC = segue.destinationViewController as? ComixDetail {
+                if let comic = sender as? Comix {
+                    comicDetailVC.comix = comic
+                    if let index = indexSelected,
+                    cell = collectionView.cellForItemAtIndexPath(index) as? ComixCell {
+                       comicDetailVC.comixThumb = cell.comixImage
+                    }
+                    
+                }
+            }
+        }
+    }
 
 }

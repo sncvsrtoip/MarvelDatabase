@@ -66,7 +66,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let mCharacter : MarvelCharacter!
         mCharacter = marvelCharacters[indexPath.row]
     
-        performSegueWithIdentifier("ComixDetailVC", sender: mCharacter)
+        performSegueWithIdentifier("CharacterDetail", sender: mCharacter)
         
         
     }
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ComixDetailVC" {
+        if segue.identifier == "CharacterDetail" {
             if let comicVC = segue.destinationViewController as? ComixVC {
                 if let character = sender as? MarvelCharacter {
                     comicVC.id = character.vId

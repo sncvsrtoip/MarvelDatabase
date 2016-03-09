@@ -109,7 +109,7 @@
                     <navigationItem key="navigationItem" id="Mel-bC-uSg"/>
                     <connections>
                         <outlet property="collectionView" destination="vdd-eI-LDD" id="Y1z-xe-RGI"/>
-                        <segue destination="yu9-Cv-GuD" kind="show" identifier="ComixDetailVC" id="azQ-XT-YoO"/>
+                        <segue destination="yu9-Cv-GuD" kind="show" identifier="CharacterDetail" id="azQ-XT-YoO"/>
                     </connections>
                 </viewController>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Fk-YI-MFC">
@@ -222,6 +222,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="zPJ-QG-vZe" id="o1i-sL-cbm"/>
+                        <segue destination="ABP-3U-bSR" kind="show" identifier="ComixDetail" id="Z6G-3Q-bkn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgL-Vo-Ie9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -271,47 +272,77 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6i-8x-AkA">
                                 <rect key="frame" x="0.0" y="54" width="600" height="491"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8K-eN-Yq9">
-                                        <rect key="frame" x="8" y="0.0" width="259" height="265"/>
-                                    </imageView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-Ky-0LZ">
-                                        <rect key="frame" x="7" y="273" width="584" height="210"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QyW-pm-QtL">
-                                            <size key="itemSize" width="50" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="comixImagesCell" id="Ufv-Xc-Mzl">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </collectionViewCell>
-                                        </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="ABP-3U-bSR" id="SaP-ET-hHy"/>
-                                            <outlet property="delegate" destination="ABP-3U-bSR" id="Mj8-KC-ZLR"/>
-                                        </connections>
-                                    </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-Ne-cSb">
-                                        <rect key="frame" x="275" y="0.0" width="316" height="37"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="08f-Pa-PaB">
-                                        <rect key="frame" x="281" y="45" width="310" height="220"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Ut7-iE-ZSy">
+                                        <rect key="frame" x="8" y="0.0" width="584" height="473"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cLf-Ne-cSb">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUJ-d0-cv7">
+                                                <rect key="frame" x="0.0" y="32" width="518" height="220"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8K-eN-Yq9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="259" height="220"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="08f-Pa-PaB">
+                                                        <rect key="frame" x="259" y="0.0" width="259" height="220"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CLh-Ky-0LZ">
+                                                <rect key="frame" x="0.0" y="263" width="584" height="210"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QyW-pm-QtL">
+                                                    <size key="itemSize" width="100" height="100"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="comixScreenCell" id="Ufv-Xc-Mzl" customClass="ComixScreenCell" customModule="MarvelDatabase" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bjx-yB-LlY">
+                                                                    <rect key="frame" x="5" y="5" width="90" height="90"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="bjx-yB-LlY" firstAttribute="leading" secondItem="Ufv-Xc-Mzl" secondAttribute="leadingMargin" constant="-3" id="EJU-BW-4bI"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="bjx-yB-LlY" secondAttribute="bottom" constant="-3" id="ZR5-oi-XuG"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="bjx-yB-LlY" secondAttribute="trailing" constant="-3" id="pPE-xp-Awi"/>
+                                                            <constraint firstItem="bjx-yB-LlY" firstAttribute="top" secondItem="Ufv-Xc-Mzl" secondAttribute="topMargin" constant="-3" id="vfs-q4-b81"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="image" destination="bjx-yB-LlY" id="5PA-h8-UW9"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="ABP-3U-bSR" id="SaP-ET-hHy"/>
+                                                    <outlet property="delegate" destination="ABP-3U-bSR" id="Mj8-KC-ZLR"/>
+                                                </connections>
+                                            </collectionView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.32549019607843138" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ut7-iE-ZSy" firstAttribute="leading" secondItem="u6i-8x-AkA" secondAttribute="leading" constant="8" id="at0-oo-eh1"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ut7-iE-ZSy" secondAttribute="bottom" constant="18" id="beu-lV-Ege"/>
+                                    <constraint firstItem="Ut7-iE-ZSy" firstAttribute="top" secondItem="u6i-8x-AkA" secondAttribute="top" id="cRH-wR-Z5i"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ut7-iE-ZSy" secondAttribute="trailing" constant="8" id="g9D-R3-l28"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -328,6 +359,12 @@
                             <constraint firstItem="X8z-b3-h04" firstAttribute="leading" secondItem="mzB-Jl-ZLO" secondAttribute="leading" id="z7A-8o-PUJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="CLh-Ky-0LZ" id="Xv3-PF-vrh"/>
+                        <outlet property="comixDescription" destination="08f-Pa-PaB" id="GGn-vR-1yt"/>
+                        <outlet property="comixThumb" destination="S8K-eN-Yq9" id="TJ7-ht-6wa"/>
+                        <outlet property="comixTitle" destination="cLf-Ne-cSb" id="KaB-5H-qTF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xva-dp-VlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvel_character_group-crop" id="XAN-5L-AZB">

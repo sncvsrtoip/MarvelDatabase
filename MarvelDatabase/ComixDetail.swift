@@ -11,14 +11,21 @@ import UIKit
 class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var comics = [Comix]()
-    var id : Int?
+
+    @IBOutlet weak var comixTitle: UILabel!
+    @IBOutlet weak var comixThumb: UIImageView!
+    @IBOutlet weak var comixDescription: UILabel!
+    
+    var comix : Comix?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let charId = id {
-            runComixAPI(charId)
+
+        if let comic = comix {
+            comixTitle.text = comic.vTitle
+            comixDescription.text = comic.vDescription
         }
+        
         self.collectionView.backgroundColor = UIColor.clearColor()
     }
     
@@ -29,12 +36,11 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("comixImagesCell", forIndexPath: indexPath) as? ComixCell {
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("comixScreenCell", forIndexPath: indexPath) as? ComixScreenCell {
             
-            let comic: Comix!
-            comic = comics[indexPath.row]
-            
-            cell.comix = comic
+            if let url = comix?.vScreensUrl[indexPath.row] {
+                cell.screenUrl = url
+            }
             
             return cell
             
@@ -44,35 +50,22 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
         
     }
     
-    func runComixAPI(id : Int) {
-        //Call API
-        let api = APIManager()
-        let ts = String(NSDate().timeIntervalSince1970)
-        let hash = md5(string: ts + PRIV_KEY + API_KEY)
-        var url = COMIX_URL + String(id) + API_POSTFIX + API_KEY
-        url += "&ts="+ts+"&hash="+hash;
-        api.loadData(url, completion: didLoadComixData)
-    }
-    
-    func didLoadComixData(comics: [Comix]) {
-        
-        self.comics = comics
-        collectionView.reloadData()
-        
-    }
-    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        //let mCharacter: Comix!
-        //mCharacter = marvelCharacters[indexPath.row]
+        //let comic: Comix!
+        //comic = comics[indexPath.row]
         
         
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(comics.count)
-        return comics.count
+        print(comix?.vScreensUrl.count)
+        if let screenTable = comix?.vScreensUrl {
+            return screenTable.count
+        } else {
+            return 0
+        }
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
