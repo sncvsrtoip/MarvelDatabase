@@ -16,7 +16,18 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvel_character_group-crop" translatesAutoresizingMaskIntoConstraints="NO" id="ICF-9K-vzJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ICF-9K-vzJ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="30n-Ut-OYU"/>
+                            <constraint firstAttribute="trailing" secondItem="ICF-9K-vzJ" secondAttribute="trailing" id="Umz-Ky-Ufa"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ICF-9K-vzJ" secondAttribute="bottom" id="gfB-W7-Gdj"/>
+                            <constraint firstItem="ICF-9K-vzJ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="la0-6a-vpx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +35,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Marvel_character_group-crop" width="1239" height="713"/>
+    </resources>
 </document>
