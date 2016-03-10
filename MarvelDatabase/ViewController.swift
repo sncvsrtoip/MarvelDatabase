@@ -188,6 +188,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
+    }
 
 }
 
