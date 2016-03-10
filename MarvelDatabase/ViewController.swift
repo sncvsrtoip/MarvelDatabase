@@ -8,11 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var marvelCharacters = [MarvelCharacter]()
+    var marvelFilteredCharacters = [MarvelCharacter]()
+    var inSearchMode = false
+
     var comics = [Comix]()
     var limit = 5
     
@@ -53,7 +59,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("marvelCell", forIndexPath: indexPath) as? MarvelCell {
             
             let mCharacter: MarvelCharacter!
-            mCharacter = marvelCharacters[indexPath.row]
+            
+            if inSearchMode {
+                mCharacter = marvelFilteredCharacters[indexPath.row]
+            } else {
+                mCharacter = marvelCharacters[indexPath.row]
+            }
             
             cell.mCharacter = mCharacter
             print(mCharacter.vImageUrl)
@@ -69,7 +80,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let mCharacter : MarvelCharacter!
-        mCharacter = marvelCharacters[indexPath.row]
+        
+        if inSearchMode {
+        mCharacter = marvelFilteredCharacters[indexPath.row]
+        } else {
+            mCharacter = marvelCharacters[indexPath.row]
+        }
     
         performSegueWithIdentifier("CharacterDetail", sender: mCharacter)
         
@@ -78,7 +94,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(marvelCharacters.count)
+        if inSearchMode {
+            return marvelFilteredCharacters.count
+        }
         return marvelCharacters.count
     }
     
@@ -89,6 +107,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         return CGSizeMake(105, 105)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            collectionView.reloadData()
+        } else {
+            inSearchMode = true
+            let searchedCharacter = searchBar.text!.lowercaseString
+            
+            marvelFilteredCharacters = marvelCharacters.filter { marvelCharacters in
+                return marvelCharacters.vName.lowercaseString.containsString(searchedCharacter.lowercaseString)
+                
+            }
+            collectionView.reloadData()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

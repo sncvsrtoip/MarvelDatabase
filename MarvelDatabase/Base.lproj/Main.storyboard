@@ -23,11 +23,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Marvel_character_group-crop" translatesAutoresizingMaskIntoConstraints="NO" id="La2-Ac-Aou">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvel_character_group-crop" translatesAutoresizingMaskIntoConstraints="NO" id="La2-Ac-Aou">
                                 <rect key="frame" x="0.0" y="57" width="600" height="543"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-eI-LDD">
-                                <rect key="frame" x="20" y="79" width="560" height="482"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAM-yk-WqR">
+                                <rect key="frame" x="20" y="579" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar alpha="0.5" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AoN-lT-VDg">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="EEx-bM-XY7"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Akg-w9-F0g"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-eI-LDD">
+                                <rect key="frame" x="20" y="107" width="560" height="464"/>
                                 <color key="backgroundColor" white="0.85061870805369133" alpha="0.22165948275862069" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IZN-Nu-0eq">
                                     <size key="itemSize" width="133" height="148"/>
@@ -78,25 +94,30 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PTv-0m-GvJ"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAM-yk-WqR">
-                                <rect key="frame" x="20" y="579" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AoN-lT-VDg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4E6-27-WgG"/>
                             <constraint firstItem="vdd-eI-LDD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="59" id="6sK-po-gy6"/>
                             <constraint firstItem="KAM-yk-WqR" firstAttribute="leading" secondItem="vdd-eI-LDD" secondAttribute="leading" id="9TT-2R-80m"/>
                             <constraint firstItem="KAM-yk-WqR" firstAttribute="top" secondItem="vdd-eI-LDD" secondAttribute="bottom" constant="18" id="B6P-vO-lds"/>
+                            <constraint firstAttribute="trailing" secondItem="AoN-lT-VDg" secondAttribute="trailing" id="Dkb-t8-1v9"/>
                             <constraint firstItem="vdd-eI-LDD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HwI-Sf-S4W"/>
+                            <constraint firstItem="AoN-lT-VDg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="IlP-zL-wNT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="La2-Ac-Aou" secondAttribute="bottom" id="PRW-vz-yNG"/>
+                            <constraint firstItem="La2-Ac-Aou" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="57" id="Rdy-rH-hPs"/>
                             <constraint firstAttribute="trailing" secondItem="La2-Ac-Aou" secondAttribute="trailing" id="Rn3-0I-IS6"/>
                             <constraint firstItem="vdd-eI-LDD" firstAttribute="centerX" secondItem="La2-Ac-Aou" secondAttribute="centerX" id="Rtj-RH-Ffr"/>
+                            <constraint firstItem="vdd-eI-LDD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="YA6-bt-HLl"/>
                             <constraint firstItem="La2-Ac-Aou" firstAttribute="centerY" secondItem="vdd-eI-LDD" secondAttribute="centerY" id="awD-F7-jm6"/>
                             <constraint firstItem="KAM-yk-WqR" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="g0A-vO-wTc"/>
+                            <constraint firstAttribute="trailing" secondItem="La2-Ac-Aou" secondAttribute="trailing" id="hL4-Hr-gtB"/>
                             <constraint firstItem="La2-Ac-Aou" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="j5D-AQ-dgj"/>
                             <constraint firstItem="vdd-eI-LDD" firstAttribute="trailing" secondItem="KAM-yk-WqR" secondAttribute="trailing" id="kHi-Uo-spU"/>
+                            <constraint firstItem="La2-Ac-Aou" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mZt-l4-26a"/>
+                            <constraint firstItem="vdd-eI-LDD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uXd-3X-6Ke"/>
+                            <constraint firstItem="KAM-yk-WqR" firstAttribute="top" secondItem="vdd-eI-LDD" secondAttribute="bottom" constant="8" id="vHf-Zj-dxl"/>
+                            <constraint firstItem="vdd-eI-LDD" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yBY-PL-sdO"/>
                             <constraint firstItem="La2-Ac-Aou" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ySn-2y-COe"/>
                             <constraint firstItem="La2-Ac-Aou" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="zle-yE-eNr"/>
                         </constraints>
@@ -245,7 +266,10 @@
                                 <rect key="frame" x="0.0" y="554" width="600" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1FK-U3-WW0">
-                                        <rect key="frame" x="20" y="8" width="560" height="21"/>
+                                        <rect key="frame" x="20" y="17" width="560" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="2jf-gI-4hO"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.8445851293103448" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -253,11 +277,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="1FK-U3-WW0" firstAttribute="leading" secondItem="RE2-zq-KdT" secondAttribute="leading" constant="20" id="EXc-Fq-pJV"/>
+                                    <constraint firstItem="1FK-U3-WW0" firstAttribute="leading" secondItem="RE2-zq-KdT" secondAttribute="leading" constant="20" id="4JL-b9-yaH"/>
                                     <constraint firstAttribute="height" constant="46" id="IJ4-qq-aTF"/>
-                                    <constraint firstAttribute="trailing" secondItem="1FK-U3-WW0" secondAttribute="trailing" constant="20" id="aJP-DQ-3wa"/>
-                                    <constraint firstAttribute="bottom" secondItem="1FK-U3-WW0" secondAttribute="bottom" constant="17" id="iCD-dh-wuf"/>
-                                    <constraint firstItem="1FK-U3-WW0" firstAttribute="top" secondItem="RE2-zq-KdT" secondAttribute="top" constant="8" id="m7f-0O-x39"/>
+                                    <constraint firstAttribute="trailing" secondItem="1FK-U3-WW0" secondAttribute="trailing" constant="20" id="qSh-PU-DpK"/>
+                                    <constraint firstAttribute="bottom" secondItem="1FK-U3-WW0" secondAttribute="bottom" constant="8" id="xid-eL-Lwl"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6i-8x-AkA">
@@ -437,7 +460,10 @@
                                 <rect key="frame" x="0.0" y="554" width="600" height="46"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="No1-q3-PC2">
-                                        <rect key="frame" x="20" y="8" width="560" height="21"/>
+                                        <rect key="frame" x="20" y="17" width="560" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="JlT-S8-iBt"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84458512929999996" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -446,9 +472,12 @@
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="1bZ-oD-4g4"/>
+                                    <constraint firstItem="No1-q3-PC2" firstAttribute="leading" secondItem="byN-9b-FIh" secondAttribute="leadingMargin" constant="12" id="6t6-fm-9NN"/>
                                     <constraint firstItem="No1-q3-PC2" firstAttribute="leading" secondItem="byN-9b-FIh" secondAttribute="leading" constant="20" id="9cp-NF-Uj9"/>
                                     <constraint firstAttribute="height" constant="46" id="Jjg-6j-yWw"/>
                                     <constraint firstAttribute="trailing" secondItem="No1-q3-PC2" secondAttribute="trailing" constant="20" id="YKq-2q-g50"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="No1-q3-PC2" secondAttribute="trailing" constant="12" id="bik-v2-8Fi"/>
+                                    <constraint firstItem="No1-q3-PC2" firstAttribute="bottom" secondItem="byN-9b-FIh" secondAttribute="bottomMargin" id="oKO-aB-skL"/>
                                     <constraint firstItem="No1-q3-PC2" firstAttribute="top" secondItem="byN-9b-FIh" secondAttribute="top" constant="8" id="tPK-is-MaR"/>
                                     <constraint firstAttribute="bottom" secondItem="No1-q3-PC2" secondAttribute="bottom" constant="17" id="u0S-pW-bAV"/>
                                 </constraints>
