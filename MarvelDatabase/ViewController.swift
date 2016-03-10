@@ -31,6 +31,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         runAPI()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if let changed = NSUserDefaults.standardUserDefaults().objectForKey("charactersNumber") as? Bool
+            where changed == true  {
+            
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setBool(false, forKey: "numberChanged")
+                
+                runAPI()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,6 +50,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func runAPI() {
+        
+        getNumberOfCharactersPerLetter()
+        
         //Call API
         let api = APIManager()
         let ts = String(NSDate().timeIntervalSince1970)
@@ -49,6 +64,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             api.loadData(url, completion: didLoadData)
         }
         
+    }
+    
+    func getNumberOfCharactersPerLetter() {
+        if (NSUserDefaults.standardUserDefaults().objectForKey("charactersNumber") != nil) {
+            let theValue = NSUserDefaults.standardUserDefaults().objectForKey("charactersNumber") as! Int
+            limit = theValue
+        }
     }
     
     func didLoadData(marvelCharacters: [MarvelCharacter]) {
@@ -72,7 +94,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             
             cell.mCharacter = mCharacter
-            print(mCharacter.vImageUrl)
 
             return cell
             

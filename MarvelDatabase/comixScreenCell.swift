@@ -14,7 +14,6 @@ class ComixScreenCell: UICollectionViewCell {
     
     var screenUrl: String? {
         didSet {
-            print(screenUrl)
             updateCell()
         }
     }
