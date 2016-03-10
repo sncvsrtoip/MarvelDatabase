@@ -24,7 +24,7 @@ class MarvelCell: UICollectionViewCell {
         characterName.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         
         characterName.text = mCharacter!.vName
-        print(characterName.text)
+
         //musicImage.image = UIImage(named: "imageNotAvailable")
         
         if mCharacter!.vImageData != nil {
@@ -47,7 +47,7 @@ class MarvelCell: UICollectionViewCell {
                 character.vImageData = data
                 image = UIImage(data: data!)
             }
-            print(character.vImageUrl)
+
             // move back to Main Queue
             dispatch_async(dispatch_get_main_queue()) {
                 imageView.image = image
