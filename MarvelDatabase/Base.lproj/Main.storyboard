@@ -176,7 +176,7 @@
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTm-n6-ggb">
                                 <rect key="frame" x="102" y="203" width="397" height="194"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="u6l-I3-vk9">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="1" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="u6l-I3-vk9">
                                         <rect key="frame" x="6" y="82" width="385" height="31"/>
                                         <connections>
                                             <action selector="sliderChangedValue:" destination="EsT-Is-PBI" eventType="valueChanged" id="Qyr-bw-VZR"/>

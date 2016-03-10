@@ -25,7 +25,7 @@ class SettingsVC: UIViewController {
             numberLabel.text = String(theValue)
             slider.value = Float(theValue)
         } else {
-            slider.value = 5.0
+            slider.value = Float(LIMIT)
             numberLabel.text = String(Int(slider.value))
         }
 

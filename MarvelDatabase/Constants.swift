@@ -21,7 +21,7 @@ let COMIX_URL = "http://gateway.marvel.com:80/v1/public/characters/"
 let API_POSTFIX = "/comics?apikey="
 
 let WIFI = "WIFI Available"
-
 let NOACCESS = "No Internet Access"
-
 let WWAN = "Cellular Access Available"
+
+let LIMIT: Int = 2

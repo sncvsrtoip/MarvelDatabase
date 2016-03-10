@@ -20,7 +20,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var inSearchMode = false
 
     var comics = [Comix]()
-    var limit = 5
+    var limit = LIMIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
