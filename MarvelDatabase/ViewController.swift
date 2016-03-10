@@ -24,6 +24,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
+        
+        reachabilityStatusChanged()
+        
         runAPI()
     }
 
@@ -127,6 +132,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
             }
             collectionView.reloadData()
+        }
+    }
+    
+    func reachabilityStatusChanged() {
+        switch reachabilityStatus {
+        case NOACCESS :
+            dispatch_async(dispatch_get_main_queue()) {
+                let alert = UIAlertController(title: "No Internet Access", message: "Please make sure you are connected to the internet", preferredStyle: .Alert)
+                
+                let okAction = UIAlertAction(title: "Ok", style: .Default, handler: { (action) -> Void in
+                })
+                
+                alert.addAction(okAction)
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+        default :
+            if marvelCharacters.count > 0 {
+            } else {
+                runAPI()
+            }
+            
         }
     }
     
