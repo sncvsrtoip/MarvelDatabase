@@ -58,7 +58,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let ts = String(NSDate().timeIntervalSince1970)
         let hash = md5(string: ts + PRIV_KEY + API_KEY)
         
-        for letter in "abcdefghijklmnopqrstuvwxyz".characters {
+        for letter in "abc".characters {
             var url = MARVEL_URL + String(letter) + AND_LIMIT + String(limit) + AND_API + API_KEY
             url += "&ts="+ts+"&hash="+hash;
             api.loadData(url, completion: didLoadData)
