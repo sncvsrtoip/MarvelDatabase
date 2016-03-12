@@ -24,4 +24,5 @@ let WIFI = "WIFI Available"
 let NOACCESS = "No Internet Access"
 let WWAN = "Cellular Access Available"
 
-let LIMIT: Int = 2
+let LIMIT: Int = 10
+let LETTER = "A"

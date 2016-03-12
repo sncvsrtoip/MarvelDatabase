@@ -21,6 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     var comics = [Comix]()
     var limit = LIMIT
+    var letter = LETTER
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,17 +53,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func runAPI() {
         
         getNumberOfCharactersPerLetter()
+        getFirstLetterOfCharacters()
         
         //Call API
         let api = APIManager()
         let ts = String(NSDate().timeIntervalSince1970)
         let hash = md5(string: ts + PRIV_KEY + API_KEY)
         
-        for letter in "abc".characters {
-            var url = MARVEL_URL + String(letter) + AND_LIMIT + String(limit) + AND_API + API_KEY
-            url += "&ts="+ts+"&hash="+hash;
-            api.loadData(url, completion: didLoadData)
-        }
+        var url = MARVEL_URL + letter + AND_LIMIT + String(limit) + AND_API + API_KEY
+        url += "&ts="+ts+"&hash="+hash;
+        api.loadData(url, completion: didLoadData)
         
     }
     
@@ -70,6 +70,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if (NSUserDefaults.standardUserDefaults().objectForKey("charactersNumber") != nil) {
             let theValue = NSUserDefaults.standardUserDefaults().objectForKey("charactersNumber") as! Int
             limit = theValue
+        }
+    }
+    
+    func getFirstLetterOfCharacters() {
+        if (NSUserDefaults.standardUserDefaults().objectForKey("charactersLetter") != nil) {
+            let theValue = NSUserDefaults.standardUserDefaults().objectForKey("charactersLetter") as! String
+            letter = theValue
         }
     }
     
