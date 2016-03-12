@@ -304,7 +304,7 @@
                                                         <constraint firstAttribute="width" secondItem="Rvq-Ek-lrE" secondAttribute="height" multiplier="39:37" id="VwI-HW-zxY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ju8-0J-j69">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Ju8-0J-j69">
                                                     <rect key="frame" x="8" y="119" width="116" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="Gcu-Hu-kEF"/>
