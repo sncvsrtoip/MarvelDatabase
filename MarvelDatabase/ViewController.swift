@@ -35,11 +35,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidAppear(animated: Bool) {
         
-        if let changed = NSUserDefaults.standardUserDefaults().objectForKey("charactersNumber") as? Bool
+        if let changed = NSUserDefaults.standardUserDefaults().objectForKey("numberChanged") as? Bool
             where changed == true  {
             
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setBool(false, forKey: "numberChanged")
+                
+                runAPI()
+                
+        } else if let changed = NSUserDefaults.standardUserDefaults().objectForKey("letterChanged") as? Bool
+            where changed == true  {
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setBool(false, forKey: "letterChanged")
                 
                 runAPI()
         }
