@@ -14,7 +14,7 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
 
     @IBOutlet weak var comixTitle: UILabel!
     @IBOutlet weak var comixThumb: UIImageView!
-    @IBOutlet weak var comixDescription: UILabel!
+    @IBOutlet weak var comixDescription: UITextView!
     
     var comix : Comix?
     var screenCells = [ComixScreenCell]()
