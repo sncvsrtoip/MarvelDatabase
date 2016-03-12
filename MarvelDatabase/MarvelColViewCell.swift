@@ -33,6 +33,9 @@ class MarvelCell: UICollectionViewCell {
             GetCharacterImage(mCharacter!, imageView: imageView)
         }
         
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 15.0
+        imageView.clipsToBounds = true
         
     }
     
