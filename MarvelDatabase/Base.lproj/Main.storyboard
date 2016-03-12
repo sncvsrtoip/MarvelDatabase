@@ -387,7 +387,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1FK-U3-WW0">
                                         <rect key="frame" x="20" y="17" width="560" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="2jf-gI-4hO"/>
+                                            <constraint firstAttribute="height" constant="21" id="8ls-pI-OJZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.8445851293103448" colorSpace="calibratedRGB"/>
@@ -396,10 +396,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="1FK-U3-WW0" firstAttribute="leading" secondItem="RE2-zq-KdT" secondAttribute="leading" constant="20" id="4JL-b9-yaH"/>
+                                    <constraint firstAttribute="bottom" secondItem="1FK-U3-WW0" secondAttribute="bottom" constant="8" id="2Dg-RE-333"/>
+                                    <constraint firstAttribute="trailing" secondItem="1FK-U3-WW0" secondAttribute="trailing" constant="20" id="8uW-IN-zRX"/>
                                     <constraint firstAttribute="height" constant="46" id="IJ4-qq-aTF"/>
-                                    <constraint firstAttribute="trailing" secondItem="1FK-U3-WW0" secondAttribute="trailing" constant="20" id="qSh-PU-DpK"/>
-                                    <constraint firstAttribute="bottom" secondItem="1FK-U3-WW0" secondAttribute="bottom" constant="8" id="xid-eL-Lwl"/>
+                                    <constraint firstItem="1FK-U3-WW0" firstAttribute="leading" secondItem="RE2-zq-KdT" secondAttribute="leading" constant="20" id="ISq-7K-Zbl"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6i-8x-AkA">
@@ -578,10 +578,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byN-9b-FIh">
                                 <rect key="frame" x="0.0" y="554" width="600" height="46"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="No1-q3-PC2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="No1-q3-PC2">
                                         <rect key="frame" x="20" y="17" width="560" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="JlT-S8-iBt"/>
+                                            <constraint firstAttribute="height" constant="21" id="k1k-3V-Gfm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84458512929999996" colorSpace="calibratedRGB"/>
@@ -591,14 +591,10 @@
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="1bZ-oD-4g4"/>
-                                    <constraint firstItem="No1-q3-PC2" firstAttribute="leading" secondItem="byN-9b-FIh" secondAttribute="leadingMargin" constant="12" id="6t6-fm-9NN"/>
-                                    <constraint firstItem="No1-q3-PC2" firstAttribute="leading" secondItem="byN-9b-FIh" secondAttribute="leading" constant="20" id="9cp-NF-Uj9"/>
                                     <constraint firstAttribute="height" constant="46" id="Jjg-6j-yWw"/>
-                                    <constraint firstAttribute="trailing" secondItem="No1-q3-PC2" secondAttribute="trailing" constant="20" id="YKq-2q-g50"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="No1-q3-PC2" secondAttribute="trailing" constant="12" id="bik-v2-8Fi"/>
-                                    <constraint firstItem="No1-q3-PC2" firstAttribute="bottom" secondItem="byN-9b-FIh" secondAttribute="bottomMargin" id="oKO-aB-skL"/>
-                                    <constraint firstItem="No1-q3-PC2" firstAttribute="top" secondItem="byN-9b-FIh" secondAttribute="top" constant="8" id="tPK-is-MaR"/>
-                                    <constraint firstAttribute="bottom" secondItem="No1-q3-PC2" secondAttribute="bottom" constant="17" id="u0S-pW-bAV"/>
+                                    <constraint firstItem="No1-q3-PC2" firstAttribute="leading" secondItem="byN-9b-FIh" secondAttribute="leading" constant="20" id="UYW-Yc-bIT"/>
+                                    <constraint firstAttribute="trailing" secondItem="No1-q3-PC2" secondAttribute="trailing" constant="20" id="Yxj-Lb-61E"/>
+                                    <constraint firstAttribute="bottom" secondItem="No1-q3-PC2" secondAttribute="bottom" constant="8" id="rL0-C3-F5x"/>
                                 </constraints>
                             </view>
                         </subviews>
