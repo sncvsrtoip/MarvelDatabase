@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dgs-Fj-dNx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dgs-Fj-dNx">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -530,7 +530,7 @@
                         <outlet property="comixDescription" destination="EBM-tp-9GN" id="iNP-oW-ugr"/>
                         <outlet property="comixThumb" destination="S8K-eN-Yq9" id="TJ7-ht-6wa"/>
                         <outlet property="comixTitle" destination="cLf-Ne-cSb" id="KaB-5H-qTF"/>
-                        <segue destination="0Q3-EB-6qr" kind="show" identifier="bigScreenShot" id="pz8-qO-gFg"/>
+                        <segue destination="aNU-ZM-ad9" kind="show" identifier="bigScreenShot" id="u97-hs-jP0"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sD-FB-Chy">
@@ -556,10 +556,18 @@
             </objects>
             <point key="canvasLocation" x="2535" y="345"/>
         </scene>
+        <!--Manage Page View Controller-->
+        <scene sceneID="go5-ar-gZ2">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="8" navigationOrientation="horizontal" spineLocation="none" id="aNU-ZM-ad9" customClass="ManagePageViewController" customModule="MarvelDatabase" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sy1-n6-N08" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2801" y="1140"/>
+        </scene>
         <!--Big Screen ShotVC-->
         <scene sceneID="IEp-43-ojj">
             <objects>
-                <viewController id="0Q3-EB-6qr" customClass="BigScreenShotVC" customModule="MarvelDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BigScreenController" id="0Q3-EB-6qr" customClass="BigScreenShotVC" customModule="MarvelDatabase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kt7-gs-BO2"/>
                         <viewControllerLayoutGuide type="bottom" id="Qwj-rg-inx"/>
@@ -568,7 +576,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvO-Ma-rcb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NvO-Ma-rcb">
                                 <rect key="frame" x="0.0" y="64" width="600" height="493"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byN-9b-FIh">
@@ -611,7 +619,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hC-Ie-asY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3189" y="345"/>
+            <point key="canvasLocation" x="3291" y="345"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g5Y-6T-VI2">

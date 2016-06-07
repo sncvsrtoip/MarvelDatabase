@@ -11,6 +11,8 @@ import UIKit
 class ComixScreenCell: UICollectionViewCell {
     
     @IBOutlet weak var image: UIImageView!
+    weak var controller: ComixDetail?
+    var index: Int!
     
     var screenUrl: String? {
         didSet {
@@ -35,6 +37,7 @@ class ComixScreenCell: UICollectionViewCell {
             // move back to Main Queue
             dispatch_async(dispatch_get_main_queue()) {
                 imageView.image = image
+                self.controller?.photos[self.index] = image
             }
         }
     }

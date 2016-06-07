@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         internetCheck?.startNotifier()
         statusChangedWithReachability(internetCheck!)
         
+        let pageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = UIColor.lightGrayColor()
+        pageControl.currentPageIndicatorTintColor = UIColor.redColor()
+        
         return true
     }
 

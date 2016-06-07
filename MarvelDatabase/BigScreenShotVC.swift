@@ -12,6 +12,7 @@ class BigScreenShotVC: UIViewController {
 
     @IBOutlet weak var image: UIImageView!
     var screen = UIImage()
+    var photoIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()

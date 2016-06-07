@@ -18,6 +18,7 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     var comix : Comix?
     var screenCells = [ComixScreenCell]()
+    var photos: [Int:UIImage] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,8 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
             if let url = comix?.vScreensUrl[indexPath.row] {
                 cell.screenUrl = url
             }
-            
+            cell.index = indexPath.row
+            cell.controller = self
             return cell
             
         } else {
@@ -63,7 +65,7 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
         //comic = comics[indexPath.row] bigScreenShot
         if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ComixScreenCell {
             let img = cell.image
-            performSegueWithIdentifier("bigScreenShot", sender: img)
+            performSegueWithIdentifier("bigScreenShot", sender: cell)
         }
     }
     
@@ -105,13 +107,22 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
         }
     }
     
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "bigScreenShot" {
+//            if let bigScreenVC = segue.destinationViewController as? BigScreenShotVC {
+//                if let img = sender as? UIImageView {
+//                    bigScreenVC.screen = img.image!
+//                }
+//            }
+//        }
+//    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "bigScreenShot" {
-            if let bigScreenVC = segue.destinationViewController as? BigScreenShotVC {
-                if let img = sender as? UIImageView {
-                    bigScreenVC.screen = img.image!
-                }
-            }
+        if let cell = sender as? ComixScreenCell,
+            indexPath = collectionView?.indexPathForCell(cell),
+            managePageViewController = segue.destinationViewController as? ManagePageViewController {
+            managePageViewController.photos = photos
+            managePageViewController.currentIndex = indexPath.row
         }
     }
 }
