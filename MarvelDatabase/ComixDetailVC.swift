@@ -64,7 +64,6 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
         //let comic: Comix!
         //comic = comics[indexPath.row] bigScreenShot
         if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ComixScreenCell {
-            let img = cell.image
             performSegueWithIdentifier("bigScreenShot", sender: cell)
         }
     }
@@ -106,16 +105,6 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
             }
         }
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "bigScreenShot" {
-//            if let bigScreenVC = segue.destinationViewController as? BigScreenShotVC {
-//                if let img = sender as? UIImageView {
-//                    bigScreenVC.screen = img.image!
-//                }
-//            }
-//        }
-//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let cell = sender as? ComixScreenCell,
