@@ -110,10 +110,14 @@
                                     <segue destination="EsT-Is-PBI" kind="show" identifier="settingsSegue" id="GfS-g1-3Aa"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VK4-df-uLm">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KAM-yk-WqR" secondAttribute="bottom" id="07Y-pk-UHp"/>
+                            <constraint firstItem="VK4-df-uLm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7PJ-gZ-XFh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TY3-hk-HU0" secondAttribute="bottom" id="83c-GJ-foU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TY3-hk-HU0" secondAttribute="trailing" constant="-14" id="883-dV-S01"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="La2-Ac-Aou" secondAttribute="bottom" id="8lq-c1-XTt"/>
@@ -128,6 +132,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TY3-hk-HU0" secondAttribute="bottom" id="ZcZ-wD-0nM"/>
                             <constraint firstItem="La2-Ac-Aou" firstAttribute="centerY" secondItem="vdd-eI-LDD" secondAttribute="centerY" id="awD-F7-jm6"/>
                             <constraint firstItem="vdd-eI-LDD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="cBz-qo-ydn"/>
+                            <constraint firstItem="VK4-df-uLm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dTE-HY-ZFW"/>
                             <constraint firstItem="KAM-yk-WqR" firstAttribute="top" secondItem="vdd-eI-LDD" secondAttribute="bottom" constant="8" id="iiY-vT-ibm"/>
                             <constraint firstItem="KAM-yk-WqR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="paR-s4-38O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TY3-hk-HU0" secondAttribute="trailing" constant="-14" id="rXS-bh-ZKe"/>
@@ -143,6 +148,7 @@
                     <navigationItem key="navigationItem" id="Mel-bC-uSg"/>
                     <connections>
                         <outlet property="collectionView" destination="vdd-eI-LDD" id="Y1z-xe-RGI"/>
+                        <outlet property="indicator" destination="VK4-df-uLm" id="geH-Q8-Lhh"/>
                         <segue destination="yu9-Cv-GuD" kind="show" identifier="CharacterDetail" id="azQ-XT-YoO"/>
                     </connections>
                 </viewController>
@@ -342,13 +348,18 @@
                                 <color key="textColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="czS-OF-B8K">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zPJ-QG-vZe" firstAttribute="top" secondItem="vh3-ki-Vlw" secondAttribute="bottom" id="169-iH-NGT"/>
                             <constraint firstAttribute="trailing" secondItem="f3i-67-HhG" secondAttribute="trailing" id="A0Y-rd-GjU"/>
+                            <constraint firstItem="czS-OF-B8K" firstAttribute="centerX" secondItem="2fl-Ql-2e1" secondAttribute="centerX" id="e51-V0-aR9"/>
                             <constraint firstItem="f3i-67-HhG" firstAttribute="bottom" secondItem="uHm-ed-wXz" secondAttribute="top" id="emC-lu-SYn"/>
                             <constraint firstItem="aFJ-gG-AGo" firstAttribute="trailing" secondItem="2fl-Ql-2e1" secondAttribute="trailingMargin" id="fSz-9f-ZH4"/>
+                            <constraint firstItem="czS-OF-B8K" firstAttribute="centerY" secondItem="2fl-Ql-2e1" secondAttribute="centerY" id="fk8-vp-T5y"/>
                             <constraint firstItem="aFJ-gG-AGo" firstAttribute="leading" secondItem="2fl-Ql-2e1" secondAttribute="leadingMargin" id="giE-Jg-6Ed"/>
                             <constraint firstItem="f3i-67-HhG" firstAttribute="leading" secondItem="2fl-Ql-2e1" secondAttribute="leading" id="m5Y-UV-Rb8"/>
                             <constraint firstItem="zPJ-QG-vZe" firstAttribute="centerX" secondItem="f3i-67-HhG" secondAttribute="centerX" id="q7p-4e-JKG"/>
@@ -360,6 +371,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="zPJ-QG-vZe" id="o1i-sL-cbm"/>
+                        <outlet property="indicator" destination="czS-OF-B8K" id="dUz-W6-wjH"/>
                         <segue destination="ABP-3U-bSR" kind="show" identifier="ComixDetail" id="Z6G-3Q-bkn"/>
                     </connections>
                 </viewController>

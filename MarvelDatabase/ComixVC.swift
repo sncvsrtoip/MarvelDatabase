@@ -11,6 +11,8 @@ import UIKit
 class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     var comics = [Comix]()
     var id : Int?
     var indexSelected : NSIndexPath?
@@ -59,6 +61,7 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
         self.comics = comics
         collectionView.reloadData()
+        indicator.stopAnimating()
         
     }
     

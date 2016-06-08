@@ -14,6 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     var marvelCharacters = [MarvelCharacter]()
     var marvelFilteredCharacters = [MarvelCharacter]()
@@ -93,6 +94,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.marvelCharacters = sortedMarveCharacters
         
         collectionView.reloadData()
+        indicator.stopAnimating()
         
     }
     
