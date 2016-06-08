@@ -53,7 +53,9 @@ class MarvelCell: UICollectionViewCell {
 
             // move back to Main Queue
             dispatch_async(dispatch_get_main_queue()) {
-                imageView.image = image
+                if self.mCharacter?.vName == character.vName {
+                    imageView.image = image
+                }
             }
         }
     }

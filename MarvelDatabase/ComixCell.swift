@@ -47,7 +47,9 @@ class ComixCell: UICollectionViewCell {
             }
             // move back to Main Queue
             dispatch_async(dispatch_get_main_queue()) {
-                imageView.image = image
+                if self.comix?.vTitle == comix.vTitle {
+                    imageView.image = image
+                }
             }
         }
     }

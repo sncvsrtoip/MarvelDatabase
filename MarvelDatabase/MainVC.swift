@@ -41,7 +41,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setBool(false, forKey: "numberChanged")
-                
+
                 runAPI()
                 
         } else if let changed = NSUserDefaults.standardUserDefaults().objectForKey("letterChanged") as? Bool
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func runAPI() {
-        
+        indicator.startAnimating()
         getNumberOfCharactersPerLetter()
         getFirstLetterOfCharacters()
         
@@ -101,7 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("marvelCell", forIndexPath: indexPath) as? MarvelCell {
-            
+            cell.imageView.image = UIImage(named: "Marvel_character_group-crop")
             let mCharacter: MarvelCharacter!
             
             if inSearchMode {
