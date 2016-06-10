@@ -33,7 +33,7 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("comixCell", forIndexPath: indexPath) as? ComixCell {
-            
+            cell.comixImage.image = nil
             let comic: Comix!
             comic = comics[indexPath.row]
             
@@ -86,10 +86,10 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        return CGSizeMake(105, 105)
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        
+//        return CGSizeMake(105, 105)
+//    }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

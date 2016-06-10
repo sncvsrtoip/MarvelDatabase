@@ -101,7 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("marvelCell", forIndexPath: indexPath) as? MarvelCell {
-            cell.imageView.image = UIImage(named: "Marvel_character_group-crop")
+            cell.imageView.image = nil
             let mCharacter: MarvelCharacter!
             
             if inSearchMode {
@@ -131,8 +131,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     
         performSegueWithIdentifier("CharacterDetail", sender: mCharacter)
-        
-        
     }
     
     
@@ -147,10 +145,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        return CGSizeMake(105, 105)
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        
+//        return CGSizeMake(105, 105)
+//    }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)

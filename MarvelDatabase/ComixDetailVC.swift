@@ -45,7 +45,7 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("comixScreenCell", forIndexPath: indexPath) as? ComixScreenCell {
-            
+            cell.image.image = nil
             if let url = comix?.vScreensUrl[indexPath.row] {
                 cell.screenUrl = url
             }
