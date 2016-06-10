@@ -9,11 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,
-    UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+    UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UITextFieldDelegate {
 
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     var marvelCharacters = [MarvelCharacter]()
@@ -202,6 +206,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
             }
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     deinit {
