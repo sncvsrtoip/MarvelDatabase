@@ -14,7 +14,9 @@ class BigScreenShotVC: UIViewController {
     
     var screen: UIImage? = UIImage() {
         didSet {
-            image.image = screen
+            if let imageOutlet = image {
+               imageOutlet.image = screen
+            }
         }
     }
     var photoIndex: Int!
