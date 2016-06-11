@@ -106,6 +106,11 @@ class ComixDetail: UIViewController, UICollectionViewDelegate, UICollectionViewD
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        comixDescription.setContentOffset(CGPointZero, animated: false)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let cell = sender as? ComixScreenCell,
             indexPath = collectionView?.indexPathForCell(cell),
