@@ -33,7 +33,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-eI-LDD">
-                                <rect key="frame" x="20" y="107" width="560" height="464"/>
+                                <rect key="frame" x="20" y="107" width="560" height="462"/>
                                 <color key="backgroundColor" white="0.85061870805369133" alpha="0.22165948275862069" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="IZN-Nu-0eq">
                                     <size key="itemSize" width="165" height="178"/>
@@ -85,12 +85,12 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY3-hk-HU0">
-                                <rect key="frame" x="500" y="579" width="80" height="21"/>
+                                <rect key="frame" x="500" y="577" width="80" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="T45-Gb-N5y"/>
                                     <constraint firstAttribute="width" constant="80" id="t1W-w6-Hu1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" red="0.56877624024295304" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -103,11 +103,11 @@
                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAM-yk-WqR">
-                                <rect key="frame" x="21" y="579" width="471" height="21"/>
+                                <rect key="frame" x="21" y="577" width="471" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CMP-c0-CEM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -115,7 +115,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KAM-yk-WqR" secondAttribute="bottom" id="07Y-pk-UHp"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KAM-yk-WqR" secondAttribute="bottom" id="4Jd-5u-XMH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KAM-yk-WqR" secondAttribute="bottom" constant="2" id="4Jd-5u-XMH"/>
                             <constraint firstItem="VK4-df-uLm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7PJ-gZ-XFh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TY3-hk-HU0" secondAttribute="bottom" id="83c-GJ-foU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TY3-hk-HU0" secondAttribute="trailing" constant="-14" id="883-dV-S01"/>
@@ -137,7 +137,7 @@
                             <constraint firstItem="TY3-hk-HU0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="c7L-Ra-wJv"/>
                             <constraint firstItem="vdd-eI-LDD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="cBz-qo-ydn"/>
                             <constraint firstItem="VK4-df-uLm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dTE-HY-ZFW"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TY3-hk-HU0" secondAttribute="bottom" id="f8h-yr-ajM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TY3-hk-HU0" secondAttribute="bottom" constant="2" id="f8h-yr-ajM"/>
                             <constraint firstItem="KAM-yk-WqR" firstAttribute="top" secondItem="vdd-eI-LDD" secondAttribute="bottom" constant="8" id="iiY-vT-ibm"/>
                             <constraint firstItem="KAM-yk-WqR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="paR-s4-38O"/>
                             <constraint firstItem="TY3-hk-HU0" firstAttribute="top" secondItem="vdd-eI-LDD" secondAttribute="bottom" constant="8" id="qUb-zg-xNl"/>
@@ -348,11 +348,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data provided by Marvel. © 2014 Marvel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFJ-gG-AGo">
-                                <rect key="frame" x="20" y="579" width="560" height="21"/>
+                                <rect key="frame" x="20" y="577" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="zF9-RQ-Y7t"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -452,7 +452,7 @@
                             <constraint firstItem="zPJ-QG-vZe" firstAttribute="leading" secondItem="2fl-Ql-2e1" secondAttribute="leadingMargin" id="rFZ-A7-G5i"/>
                             <constraint firstItem="f3i-67-HhG" firstAttribute="top" secondItem="2fl-Ql-2e1" secondAttribute="top" id="uzR-eu-QTS"/>
                             <constraint firstItem="uHm-ed-wXz" firstAttribute="top" secondItem="zPJ-QG-vZe" secondAttribute="bottom" constant="29" id="w3r-Ju-eGi"/>
-                            <constraint firstItem="uHm-ed-wXz" firstAttribute="top" secondItem="aFJ-gG-AGo" secondAttribute="bottom" id="xY7-vR-dBs"/>
+                            <constraint firstItem="uHm-ed-wXz" firstAttribute="top" secondItem="aFJ-gG-AGo" secondAttribute="bottom" constant="2" id="xY7-vR-dBs"/>
                         </constraints>
                     </view>
                     <connections>
@@ -485,7 +485,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="8ls-pI-OJZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.8445851293103448" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -666,7 +666,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="k1k-3V-Gfm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84458512929999996" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
