@@ -49,10 +49,11 @@ class ComixVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     func runComixAPI(id : Int) {
         //Call API
+        let limit = 50
         let api = APIManager()
         let ts = String(NSDate().timeIntervalSince1970)
         let hash = md5(string: ts + PRIV_KEY + API_KEY)
-        var url = COMIX_URL + String(id) + API_POSTFIX + API_KEY
+        var url = COMIX_URL + String(id) + API_POSTFIX + API_KEY + AND_LIMIT + String(limit)
         url += "&ts="+ts+"&hash="+hash;
         api.loadData(url, completion: didLoadComixData)
     }
