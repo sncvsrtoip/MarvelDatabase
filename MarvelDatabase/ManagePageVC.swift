@@ -35,9 +35,7 @@ class ManagePageViewController: UIPageViewController {
         if let storyboard = storyboard,
             page = storyboard.instantiateViewControllerWithIdentifier("BigScreenController")
                 as? BigScreenShotVC {
-            if photos.count > index {
-                page.screen = photos[index]!
-            }
+            page.screen = photos[index]
             page.photoIndex = index
             return page
         }
