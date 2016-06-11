@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UITextFieldDelegate {
 
-
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -27,6 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var comics = [Comix]()
     var limit = LIMIT
     var letter = LETTER
+    var desc = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,21 +40,38 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidAppear(animated: Bool) {
         
+        var shouldRunApi = false
+        
         if let changed = NSUserDefaults.standardUserDefaults().objectForKey("numberChanged") as? Bool
             where changed == true  {
             
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setBool(false, forKey: "numberChanged")
 
-                runAPI()
+                shouldRunApi = true
                 
-        } else if let changed = NSUserDefaults.standardUserDefaults().objectForKey("letterChanged") as? Bool
+        }
+        
+        if let changed = NSUserDefaults.standardUserDefaults().objectForKey("letterChanged") as? Bool
             where changed == true  {
                 
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setBool(false, forKey: "letterChanged")
                 
-                runAPI()
+                shouldRunApi = true
+        }
+        
+        if let changed = NSUserDefaults.standardUserDefaults().objectForKey("descChanged") as? Bool
+            where changed == true  {
+            
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(false, forKey: "descChanged")
+            
+            shouldRunApi = true
+        }
+        
+        if shouldRunApi {
+            runAPI()
         }
     }
 
@@ -67,13 +84,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         indicator.startAnimating()
         getNumberOfCharactersPerLetter()
         getFirstLetterOfCharacters()
+        getDesc()
         
         //Call API
         let api = APIManager()
         let ts = String(NSDate().timeIntervalSince1970)
         let hash = md5(string: ts + PRIV_KEY + API_KEY)
         
-        var url = MARVEL_URL + letter + AND_LIMIT + String(limit) + AND_API + API_KEY
+        var url = MARVEL_URL + letter
+        if desc {
+            url += ORDER_BY
+        }
+        url += AND_LIMIT + String(limit) + AND_API + API_KEY
         url += "&ts="+ts+"&hash="+hash;
         api.loadData(url, completion: didLoadData)
         
@@ -90,6 +112,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if (NSUserDefaults.standardUserDefaults().objectForKey("charactersLetter") != nil) {
             let theValue = NSUserDefaults.standardUserDefaults().objectForKey("charactersLetter") as! String
             letter = theValue
+        }
+    }
+    
+    func getDesc() {
+        if (NSUserDefaults.standardUserDefaults().objectForKey("desc") != nil) {
+            let theValue = NSUserDefaults.standardUserDefaults().objectForKey("desc") as! Bool
+            desc = theValue
         }
     }
     

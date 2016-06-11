@@ -11,19 +11,34 @@ import UIKit
 class SettingsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var slider: UISlider!
-    
     @IBOutlet weak var numberLabel: UILabel!
-    
     @IBOutlet weak var pickerOutlet: UIPickerView!
+    @IBOutlet weak var descSwitch: UISwitch!
     
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     var alphabetArray = [Character]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadSettings()
+    }
+
+    @IBAction func descSwitchAction(sender: UISwitch) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(sender.on, forKey: "desc")
+        defaults.setBool(true, forKey: "descChanged")
+    }
+
+    
+    @IBAction func sliderChangedValue(sender: UISlider) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(Int(slider.value), forKey: "charactersNumber")
+        defaults.setBool(true, forKey: "numberChanged")
+        numberLabel.text = String(Int(slider.value))
+    }
+    
+    private func loadSettings() {
         title = "Settings"
-        
         alphabetArray = Array(alphabet.characters)
         
         if (NSUserDefaults.standardUserDefaults().objectForKey("charactersNumber") != nil)
@@ -43,20 +58,12 @@ class SettingsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         } else {
             pickerOutlet.selectRow(alphabetArray.indexOf(Character(LETTER))!, inComponent: 0, animated: true)
         }
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    @IBAction func sliderChangedValue(sender: UISlider) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(Int(slider.value), forKey: "charactersNumber")
-        defaults.setBool(true, forKey: "numberChanged")
-        numberLabel.text = String(Int(slider.value))
+        
+        if (NSUserDefaults.standardUserDefaults().objectForKey("desc") != nil)
+        {
+            let theValue = NSUserDefaults.standardUserDefaults().objectForKey("desc") as! Bool
+            descSwitch.on = theValue
+        }
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -76,15 +83,5 @@ class SettingsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         defaults.setObject(String(alphabetArray[row]), forKey: "charactersLetter")
         defaults.setBool(true, forKey: "letterChanged")
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

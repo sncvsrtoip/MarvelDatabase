@@ -9,6 +9,7 @@
 import UIKit
 
 class ManagePageViewController: UIPageViewController {
+    
     var photos: [Int:UIImage] = [:]
     var currentIndex: Int!
     
