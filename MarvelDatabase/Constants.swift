@@ -26,4 +26,5 @@ let NOACCESS = "No Internet Access"
 let WWAN = "Cellular Access Available"
 
 let LIMIT: Int = 10
+let COMICS_LIMIT: Int = 10
 let LETTER = "A"
